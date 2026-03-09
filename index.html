@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Hypr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hypr</title>
 
 <style>
 
@@ -13,11 +14,21 @@ body {
   justify-content:center;
   align-items:center;
   height:100vh;
+  overflow:hidden;
 }
 
 video {
-  max-width:90%;
+  width:90vw;
+  max-width:1400px;
   height:auto;
+}
+
+@media (max-width:768px) {
+
+  video {
+    width:95vw;
+  }
+
 }
 
 </style>
@@ -26,7 +37,7 @@ video {
 <body>
 
 <video autoplay muted loop playsinline>
-  <source src="hypr-loop.mp4" type="video/mp4">
+  <source src="./hypr-loop.mp4" type="video/mp4">
 </video>
 
 </body>
