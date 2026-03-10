@@ -14,15 +14,13 @@ body{
   color:#FFF;
 }
   
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at center,
-    rgba(0,0,0,0) 55%,
-    rgba(0,0,0,0.55) 100%);
+video{
+  width:90vw;
+  max-width:1400px;
+  max-height:70vh;
+  height:auto;
+  display:block;
+  mask-image: radial-gradient(circle at center, black 65%, transparent 100%);
 }
   
 /* Page layout */
