@@ -7,65 +7,54 @@
 
 <style>
 
-body {
+body{
   margin:0;
   background:#0B0B0B;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-  overflow:hidden;
-  position:relative;
+  font-family:Helvetica, Arial, sans-serif;
+  color:#FFF;
 }
 
-video {
+/* Page layout */
+
+.container{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:6vh 20px 8vh 20px;
+  box-sizing:border-box;
+}
+
+/* Video */
+
+video{
   width:90vw;
   max-width:1800px;
   height:auto;
+  display:block;
 }
 
-@media (max-width:768px) {
-
-  body{
-  align-items:center;
-  height:auto;
-}
-
-  video{
-    width:95vw;
-  }
-
-  .signup{
-    position:static;
-    margin-top:28px;
-  }
-
-}
-.container{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
+/* Signup section */
 
 .signup{
-  position:absolute;
-  bottom:8vh;
+  margin-top:4vh;
   text-align:center;
 }
 
 .artists{
-  font-family:Helvetica, Arial, sans-serif;
   font-size:14px;
   color:#888;
   margin-bottom:6px;
 }
 
 .claim{
-  font-family:Helvetica, Arial, sans-serif;
   font-size:16px;
   color:#F5F5F5;
   margin-bottom:12px;
 }
+
+/* Input */
 
 input{
   background:#0F0F0F;
@@ -81,6 +70,25 @@ input:focus{
   border-color:#555;
   outline:none;
 }
+
+/* Mobile adjustments */
+
+@media (max-width:768px){
+
+  .container{
+    padding-top:12vh;
+  }
+
+  video{
+    width:95vw;
+  }
+
+  .signup{
+    margin-top:5vh;
+  }
+
+}
+
 </style>
 </head>
 
