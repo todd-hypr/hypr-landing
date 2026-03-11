@@ -91,6 +91,23 @@ input:focus{
   box-shadow:0 0 0 1px #444;
 }
 
+/* Button */
+
+button{
+  margin-top:12px;
+  background:#FFFFFF;
+  color:#000;
+  border:none;
+  padding:12px 20px;
+  font-size:15px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#EAEAEA;
+}
+
 /* Mobile adjustments */
 
 @media (max-width:768px){
@@ -120,7 +137,9 @@ input:focus{
   <source src="./hypr-loop.mp4" type="video/mp4">
 </video>
 
-<form class="signup" method="POST">
+<form class="signup" method="POST" name="waitlist">
+
+<input type="hidden" name="form-name" value="waitlist">
 
 <p class="intro">
 For visual artists and cultural explorers
@@ -136,6 +155,8 @@ Claim your username when Hypr launches
 </p>
 
 <input type="email" name="email" placeholder="Enter your email" required>
+
+<button type="submit">Join</button>
 
 <p class="note">
 Early access begins with independent artists
