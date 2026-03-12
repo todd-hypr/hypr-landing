@@ -12,21 +12,49 @@ body{
   background:#0B0B0B;
   font-family:Helvetica, Arial, sans-serif;
   color:#FFF;
+}
+
+.container{
+  min-height:100vh;
   display:flex;
+  flex-direction:column;
   justify-content:center;
   align-items:center;
-  height:100vh;
   text-align:center;
+  padding:40px 20px;
+  box-sizing:border-box;
+}
+
+.logo{
+  width:180px;
+  max-width:60vw;
+  margin-bottom:28px;
 }
 
 .message{
   font-size:22px;
+  margin-bottom:12px;
 }
 
 .sub{
   font-size:15px;
   color:#CFCFCF;
-  margin-top:12px;
+  margin-bottom:22px;
+}
+
+.social{
+  font-size:14px;
+}
+
+.social a{
+  color:#FFFFFF;
+  text-decoration:none;
+  border-bottom:1px solid #444;
+  padding-bottom:2px;
+}
+
+.social a:hover{
+  border-color:#888;
 }
 
 </style>
@@ -34,14 +62,23 @@ body{
 
 <body>
 
-<div>
-  <p class="message">
-  You're on the list.
-  </p>
+<div class="container">
 
-  <p class="sub">
-  We'll notify you when Hypr launches and username selection opens.
-  </p>
+<img src="/hypr-logo-white.png" class="logo">
+
+<p class="message">
+You're on the list.
+</p>
+
+<p class="sub">
+We'll notify you when Hypr launches and username selection opens.
+</p>
+
+<p class="social">
+Follow Hypr on  
+<a href="https://instagram.com/hypr.me" target="_blank">Instagram</a>
+</p>
+
 </div>
 
 </body>
