@@ -182,15 +182,15 @@ form.addEventListener("submit", async function(e){
   e.preventDefault();
 
   const email = form.querySelector("input[name='email']").value;
-const honeypot = form.querySelector("input[name='company']").value;
-const button = form.querySelector("button");
+  const honeypot = form.querySelector("input[name='company']").value;
+  const button = form.querySelector("button");
 
-if (honeypot) return;
+  if (honeypot) return;
 
   button.disabled = true;
   button.innerText = "Joining...";
 
-  await fetch("https://app.loops.so/api/v1/contacts/create", {
+  const response = await fetch("https://app.loops.so/api/v1/contacts/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -202,7 +202,13 @@ if (honeypot) return;
     })
   });
 
-  window.location.href = "/thanks";
+  if (response.ok) {
+    window.location.href = "/thanks";
+  } else {
+    button.disabled = false;
+    button.innerText = "Join";
+    alert("Something went wrong. Please try again.");
+  }
 });
 </script>
 
