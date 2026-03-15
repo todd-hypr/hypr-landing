@@ -176,14 +176,12 @@ Early access begins with independent artists
 </div>
 
 <script>
-<script>
 const form = document.getElementById("waitlist-form");
 
 form.addEventListener("submit", async function(e){
   e.preventDefault();
 
-  const emailInput = form.querySelector("input[name='email']");
-  const email = emailInput.value;
+  const email = form.querySelector("input[name='email']").value;
   const button = form.querySelector("button");
 
   button.disabled = true;
@@ -194,16 +192,16 @@ form.addEventListener("submit", async function(e){
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer 9c73cf1d1afab6cc5e3926a5b79bc615"
+        "Authorization": "Bearer 61cb1ef84df5e8e145e30521d1e7f706"
       },
       body: JSON.stringify({
         email: email,
-        source: "hypr.me landing page",
-        subscribed: true
+        subscribed: true,
+        source: "hypr.me landing page"
       })
     });
   } catch (error) {
-    console.log(error);
+    console.error("Signup error:", error);
   }
 
   window.location.href = "/thanks";
