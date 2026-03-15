@@ -144,7 +144,7 @@ button:hover{
   <source src="./hypr-loop.mp4" type="video/mp4">
 </video>
 
-<form class="signup" name="waitlist" action="/thanks">
+<form class="signup" id="waitlist-form">
 
 <input type="hidden" name="form-name" value="waitlist">
 
@@ -173,5 +173,29 @@ Early access begins with independent artists
 
 </div>
 
+  <script>
+const form = document.getElementById("waitlist-form");
+
+form.addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  const email = form.querySelector("input[name='email']").value;
+
+  await fetch("https://app.loops.so/api/v1/contacts/create", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer 28629456e8492ed075579caf6a5a28ed"
+    },
+    body: JSON.stringify({
+  email: email,
+  source: "hypr.me landing page"
+})
+  });
+
+  window.location.href = "/thanks";
+});
+</script>
+  
 </body>
 </html>
