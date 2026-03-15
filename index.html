@@ -182,14 +182,15 @@ const form = document.getElementById("waitlist-form");
 form.addEventListener("submit", async function(e){
   e.preventDefault();
 
-  const email = form.querySelector("input[name='email']").value;
+  const emailInput = form.querySelector("input[name='email']");
+  const email = emailInput.value;
   const button = form.querySelector("button");
 
   button.disabled = true;
   button.innerText = "Joining...";
 
   try {
-    const response = await fetch("https://app.loops.so/api/v1/contacts", {
+    await fetch("https://app.loops.so/api/v1/contacts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -197,14 +198,12 @@ form.addEventListener("submit", async function(e){
       },
       body: JSON.stringify({
         email: email,
-        source: "hypr.me landing page"
+        source: "hypr.me landing page",
+        subscribed: true
       })
     });
-
-    console.log(await response.text());
-
   } catch (error) {
-    console.error("Signup error:", error);
+    console.log(error);
   }
 
   window.location.href = "/thanks";
