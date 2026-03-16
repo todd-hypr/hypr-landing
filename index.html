@@ -195,9 +195,11 @@ form.addEventListener("submit", async function(e){
         "Authorization": "Bearer 61cb1ef84df5e8e145e30521d1e7f706"
       },
       body: JSON.stringify({
-        email: email,
-        subscribed: true,
-        source: "hypr.me landing page"
+        data: {
+          email: email,
+          subscribed: true,
+          source: "hypr.me landing page"
+        }
       })
     });
   } catch (error) {
