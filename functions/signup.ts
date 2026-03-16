@@ -7,7 +7,7 @@ export const onRequest = async (context) => {
   const body = await context.request.json();
   const email = body.email;
 
-  const res = await fetch("https://app.loops.so/api/v1/contacts", {
+  const res = await fetch("https://app.loops.so/api/v1/contacts/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
