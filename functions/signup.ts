@@ -7,11 +7,15 @@ export const onRequest = async (context) => {
   const body = await context.request.json();
   const email = body.email;
 
-  const res = await fetch("https://app.loops.so/api/v1/contacts/create", {
+  if (!email) {
+    return new Response("Email required", { status: 400 });
+  }
+
+  await fetch("https://app.loops.so/api/v1/contacts/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer 61cb1ef84df5e8e145e30521d1e7f706"
+      "Authorization": "Bearer YOUR_LOOPS_API_KEY"
     },
     body: JSON.stringify({
       email: email,
@@ -19,13 +23,9 @@ export const onRequest = async (context) => {
     })
   });
 
-  const text = await res.text();
-
-  return new Response(JSON.stringify({
-    loops_status: res.status,
-    loops_response: text
-  }), {
-    headers: { "Content-Type": "application/json" }
-  });
+  return new Response(
+    JSON.stringify({ success: true }),
+    { headers: { "Content-Type": "application/json" } }
+  );
 
 };
