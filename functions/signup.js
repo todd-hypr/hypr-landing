@@ -11,7 +11,7 @@ export async function onRequest(context) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer YOUR_API_KEY"
+      "Authorization": "Bearer 61cb1ef84df5e8e145e30521d1e7f706"
     },
     body: JSON.stringify({
       email: email,
