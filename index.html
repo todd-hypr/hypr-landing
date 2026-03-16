@@ -188,17 +188,15 @@ form.addEventListener("submit", async function(e){
   button.innerText = "Joining...";
 
   try {
-    const response = await fetch("https://app.loops.so/api/v1/contacts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer YOUR_NEW_API_KEY"
-      },
-      body: JSON.stringify({
-        email: email,
-        subscribed: true
-      })
-    });
+    await fetch("/signup", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    email: email
+  })
+});
 
     const result = await response.text();
     console.log(result);
