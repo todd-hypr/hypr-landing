@@ -188,15 +188,15 @@ form.addEventListener("submit", async function(e){
   button.innerText = "Joining...";
 
   try {
-    await fetch("/signup", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    email: email
-  })
-});
+    const response = await fetch("/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: email
+      })
+    });
 
     const result = await response.text();
     console.log(result);
