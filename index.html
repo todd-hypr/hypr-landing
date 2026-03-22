@@ -188,23 +188,21 @@ form.addEventListener("submit", async function(e){
   button.innerText = "Joining...";
 
   try {
-    const response = await fetch("/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        email: email
-      })
-    });
+  const response = await fetch("/signup", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      email: email
+    })
+  });
 
-    const result = await response.text();
-    console.log(result);
+  await response.json();
 
-  } catch (error) {
-    console.error("Signup error:", error);
-  }
-
+} catch (error) {
+  console.error("Signup error:", error);
+}
   window.location.href = "/thanks";
 });
 </script>
