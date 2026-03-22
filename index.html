@@ -348,40 +348,43 @@ Early access begins with independent artists
 
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+<script defer>
+async function handleSubmit(e) {
+  e.preventDefault();
 
   const form = document.getElementById("waitlist-form");
+  const email = form.querySelector("input[name='email']").value;
+  const button = form.querySelector("button");
 
-  form.addEventListener("submit", async function(e){
-    e.preventDefault();
+  button.disabled = true;
+  button.innerText = "Joining...";
 
-    const email = form.querySelector("input[name='email']").value;
-    const button = form.querySelector("button");
+  try {
+    const response = await fetch("/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email })
+    });
 
-    button.disabled = true;
-    button.innerText = "Joining...";
-
-    try {
-      const response = await fetch("/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email })
-      });
-
-      if (!response.ok) {
-        throw new Error("Request failed");
-      }
-
-    } catch (error) {
-      console.error("Signup error:", error);
+    if (!response.ok) {
+      throw new Error("Request failed");
     }
 
-    window.location.href = "/thanks";
-  });
+  } catch (error) {
+    console.error("Signup error:", error);
+  }
 
+  window.location.href = "/thanks";
+}
+
+// ✅ attach AFTER DOM is ready (guaranteed)
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("waitlist-form");
+  if (form) {
+    form.addEventListener("submit", handleSubmit);
+  }
 });
 </script>
 
