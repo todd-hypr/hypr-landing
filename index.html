@@ -176,34 +176,39 @@ Early access begins with independent artists
 </div>
 
 <script>
-const form = document.getElementById("waitlist-form");
+document.addEventListener("DOMContentLoaded", function() {
 
-form.addEventListener("submit", async function(e){
-  e.preventDefault();
+  const form = document.getElementById("waitlist-form");
 
-  const email = form.querySelector("input[name='email']").value;
-  const button = form.querySelector("button");
+  form.addEventListener("submit", async function(e){
+    e.preventDefault();
 
-  button.disabled = true;
-  button.innerText = "Joining...";
+    const email = form.querySelector("input[name='email']").value;
+    const button = form.querySelector("button");
 
-  try {
-  const response = await fetch("/signup", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      email: email
-    })
+    button.disabled = true;
+    button.innerText = "Joining...";
+
+    try {
+      const response = await fetch("/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email })
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
+    } catch (error) {
+      console.error("Signup error:", error);
+    }
+
+    window.location.href = "/thanks";
   });
 
-  await response.json();
-
-} catch (error) {
-  console.error("Signup error:", error);
-}
-  window.location.href = "/thanks";
 });
 </script>
 
