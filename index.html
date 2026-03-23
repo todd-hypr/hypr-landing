@@ -348,15 +348,15 @@ Early access begins with independent artists
 
 </div>
 
- <script>
+<script>
 window.addEventListener("load", () => {
 
   const form = document.getElementById("waitlist-form");
   const button = document.querySelector("button");
 
-  console.log("Script loaded, binding click...");
-
-  button.addEventListener("click", async () => {
+  button.addEventListener("click", async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
 
     console.log("Button clicked");
 
