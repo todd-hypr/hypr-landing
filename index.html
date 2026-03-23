@@ -117,7 +117,12 @@ document.getElementById("join-btn").addEventListener("click", async () => {
 
     console.log("STATUS:", res.status);
 
-    window.location.href = "/thanks";
+  if (res.ok) {
+  window.location.href = "/thanks";
+} else {
+  console.error("FAILED:", res.status);
+  alert("Signup failed. Check console.");
+}
 
   } catch (err) {
     console.error(err);
