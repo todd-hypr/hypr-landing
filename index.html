@@ -6,7 +6,6 @@
 <title>hypr</title>
 
 <style>
-
 body{
   margin:0;
   background:#0B0B0B;
@@ -14,21 +13,16 @@ body{
   color:#FFF;
 }
 
-p{
-  margin:0;
-}
-  
+p{ margin:0; }
+
 video{
   width:90vw;
   max-width:1400px;
   max-height:60vh;
-  height:auto;
   display:block;
   -webkit-mask-image: radial-gradient(circle at center, black 65%, transparent 100%);
   mask-image: radial-gradient(circle at center, black 65%, transparent 100%);
 }
-
-/* Page layout */
 
 .container{
   display:flex;
@@ -37,277 +31,42 @@ video{
   align-items:center;
   min-height:100vh;
   padding:40px 20px;
-  box-sizing:border-box;
-  max-width:1600px;
-  margin:auto;
 }
-
-/* Signup section */
 
 .signup{
   margin-top:3vh;
   text-align:center;
 }
 
-.intro{
+.intro, .cta, .note{
   font-size:15px;
   color:#CFCFCF;
-  margin-bottom:10px;
 }
 
-.note{
-  font-size:15px;
-  color:#CFCFCF;
-  margin-top:18px;
-}
-
-.cta{
-  font-size:14px;
-  color:#CFCFCF;
-  margin-bottom:12px;
-}
-  
 .headline{
   font-size:22px;
-  color:#FFFFFF;
-  font-weight:500;
-  margin-bottom:14px;
-}
-
-/* Input */
-
-input{
-  background:#0F0F0F;
-  border:1px solid #555;
-  color:#FFFFFF;
-  padding:14px 18px;
-  width:320px;
-  max-width:90vw;
-  font-size:16px;
-  border-radius:6px;
-  margin-bottom:14px;
-}
-
-input::placeholder{
-  color:#B5B5B5;
-}
-  
-input:focus{
-  border-color:#666;
-  outline:none;
-  box-shadow:0 0 0 1px #444;
-}
-
-/* Button */
-
-button{
-  margin-top:12px;
-  background:#FFFFFF;
-  color:#000;
-  border:none;
-  padding:12px 20px;
-  font-size:15px;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-button:hover{
-  background:#EAEAEA;
-}
-
-/* Mobile adjustments */
-
-@media (max-width:768px){
-
-  .container{
-    padding-top:12vh;
-  }
-
-  video{
-    width:95vw;
-  }
-
-  .signup{
-    margin-top:5vh;
-  }
-
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-<video autoplay muted loop playsinline preload="metadata">
-  <source src="./hypr-loop.mp4" type="video/mp4">
-</video>
-
-<form class="signup" id="waitlist-form" onsubmit="handleSubmit(event)">
-
-<input type="text" name="company" style="display:none">
-
-<p class="intro">
-Artists + the art curious
-</p>
-
-<p class="headline">
-Discover what actually resonates
-</p>
-
-<p class="cta">
-Join the waitlist<br>
-Claim your username when Hypr launches
-</p>
-
-<input type="email" name="email" placeholder="Enter your email" required>
-
-<button type="button" id="join-btn">Join</button>
-
-<p class="note">
-Early access begins with independent artists
-</p>
-
-</form>
-
-</div>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>hypr</title>
-
-<style>
-
-body{
-  margin:0;
-  background:#0B0B0B;
-  font-family:Helvetica, Arial, sans-serif;
   color:#FFF;
+  margin:14px 0;
 }
-
-p{
-  margin:0;
-}
-  
-video{
-  width:90vw;
-  max-width:1400px;
-  max-height:60vh;
-  height:auto;
-  display:block;
-  -webkit-mask-image: radial-gradient(circle at center, black 65%, transparent 100%);
-  mask-image: radial-gradient(circle at center, black 65%, transparent 100%);
-}
-
-/* Page layout */
-
-.container{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  min-height:100vh;
-  padding:40px 20px;
-  box-sizing:border-box;
-  max-width:1600px;
-  margin:auto;
-}
-
-/* Signup section */
-
-.signup{
-  margin-top:3vh;
-  text-align:center;
-}
-
-.intro{
-  font-size:15px;
-  color:#CFCFCF;
-  margin-bottom:10px;
-}
-
-.note{
-  font-size:15px;
-  color:#CFCFCF;
-  margin-top:18px;
-}
-
-.cta{
-  font-size:14px;
-  color:#CFCFCF;
-  margin-bottom:12px;
-}
-  
-.headline{
-  font-size:22px;
-  color:#FFFFFF;
-  font-weight:500;
-  margin-bottom:14px;
-}
-
-/* Input */
 
 input{
   background:#0F0F0F;
   border:1px solid #555;
-  color:#FFFFFF;
-  padding:14px 18px;
+  color:#FFF;
+  padding:14px;
   width:320px;
-  max-width:90vw;
-  font-size:16px;
   border-radius:6px;
-  margin-bottom:14px;
+  margin:14px 0;
 }
-
-input::placeholder{
-  color:#B5B5B5;
-}
-  
-input:focus{
-  border-color:#666;
-  outline:none;
-  box-shadow:0 0 0 1px #444;
-}
-
-/* Button */
 
 button{
-  margin-top:12px;
-  background:#FFFFFF;
+  background:#FFF;
   color:#000;
   border:none;
   padding:12px 20px;
-  font-size:15px;
   border-radius:6px;
   cursor:pointer;
 }
-
-button:hover{
-  background:#EAEAEA;
-}
-
-/* Mobile adjustments */
-
-@media (max-width:768px){
-
-  .container{
-    padding-top:12vh;
-  }
-
-  video{
-    width:95vw;
-  }
-
-  .signup{
-    margin-top:5vh;
-  }
-
-}
-
 </style>
 </head>
 
@@ -315,80 +74,57 @@ button:hover{
 
 <div class="container">
 
-<video autoplay muted loop playsinline preload="metadata">
+<video autoplay muted loop playsinline>
   <source src="./hypr-loop.mp4" type="video/mp4">
 </video>
 
 <div class="signup" id="waitlist-form">
 
-<input type="text" name="company" style="display:none">
+<p class="intro">Artists + the art curious</p>
 
-<p class="intro">
-Artists + the art curious
-</p>
-
-<p class="headline">
-Discover what actually resonates
-</p>
+<p class="headline">Discover what actually resonates</p>
 
 <p class="cta">
 Join the waitlist<br>
 Claim your username when Hypr launches
 </p>
 
-<input type="email" name="email" placeholder="Enter your email" required>
+<input type="email" id="email" placeholder="Enter your email" required>
 
-<button type="button">Join</button>
+<button id="join-btn">Join</button>
 
-<p class="note">
-Early access begins with independent artists
-</p>
+<p class="note">Early access begins with independent artists</p>
 
 </div>
 
 </div>
 
 <script>
-window.addEventListener("load", () => {
+document.getElementById("join-btn").addEventListener("click", async () => {
 
-  const form = document.getElementById("waitlist-form");
-  const button = document.querySelector("button");
+  const email = document.getElementById("email").value;
 
-  button.addEventListener("click", async (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  console.log("CLICK WORKS");
 
-    console.log("Button clicked");
+  try {
+    const res = await fetch("/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email })
+    });
 
-    const email = form.querySelector("input[name='email']").value;
-
-    button.disabled = true;
-    button.innerText = "Joining...";
-
-    try {
-      const res = await fetch("/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email })
-      });
-
-      console.log("Signup status:", res.status);
-
-    } catch (err) {
-      console.error(err);
-    }
+    console.log("STATUS:", res.status);
 
     window.location.href = "/thanks";
-  });
+
+  } catch (err) {
+    console.error(err);
+  }
 
 });
 </script>
-
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"51990c489f5b454e855f5c97d7a9bd41","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-</body>
-</html>
 
 </body>
 </html>
