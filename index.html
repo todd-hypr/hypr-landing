@@ -348,13 +348,18 @@ Early access begins with independent artists
 
 </div>
 
-<script defer>
-document.addEventListener("DOMContentLoaded", () => {
+<script>
+(function () {
 
   const form = document.getElementById("waitlist-form");
-  const button = document.getElementById("join-btn");
+  const button = document.querySelector("button");
 
-  button.addEventListener("click", async function(e) {
+  if (!form || !button) {
+    console.error("Form or button not found");
+    return;
+  }
+
+  button.addEventListener("click", async function () {
 
     const email = form.querySelector("input[name='email']").value;
 
@@ -362,7 +367,7 @@ document.addEventListener("DOMContentLoaded", () => {
     button.innerText = "Joining...";
 
     try {
-      const response = await fetch("/signup", {
+      const res = await fetch("/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -370,16 +375,16 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify({ email })
       });
 
-      console.log("Status:", response.status);
+      console.log("Signup status:", res.status);
 
-    } catch (error) {
-      console.error("Signup error:", error);
+    } catch (err) {
+      console.error(err);
     }
 
     window.location.href = "/thanks";
   });
 
-});
+})();
 </script>
 
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"51990c489f5b454e855f5c97d7a9bd41","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
