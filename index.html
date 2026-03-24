@@ -103,6 +103,11 @@ Claim your username when Hypr launches
 document.getElementById("join-btn").addEventListener("click", async () => {
 
   const email = document.getElementById("email").value;
+  const button = document.getElementById("join-btn");
+
+  // 🔒 Prevent double clicks
+  button.disabled = true;
+  button.innerText = "Joining...";
 
   console.log("CLICK WORKS");
 
@@ -117,17 +122,23 @@ document.getElementById("join-btn").addEventListener("click", async () => {
 
     console.log("STATUS:", res.status);
 
-  if (res.ok) {
-  setTimeout(() => {
-  window.location.href = "/thanks";
-}, 1500);
-} else {
-  console.error("FAILED:", res.status);
-  alert("Signup failed. Check console.");
-}
+    if (res.ok) {
+      button.innerText = "You're on the list";
+
+      setTimeout(() => {
+        window.location.href = "/thanks";
+      }, 1200);
+
+    } else {
+      button.disabled = false;
+      button.innerText = "Join";
+      alert("Signup failed. Try again.");
+    }
 
   } catch (err) {
     console.error(err);
+    button.disabled = false;
+    button.innerText = "Join";
   }
 
 });
