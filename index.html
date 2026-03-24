@@ -107,7 +107,7 @@ document.getElementById("join-btn").addEventListener("click", async () => {
 
   // 🔒 Prevent double clicks
   button.disabled = true;
-  button.innerText = "Joining...";
+  button.innerText = "Getting you in...";
 
   console.log("CLICK WORKS");
 
@@ -123,7 +123,7 @@ document.getElementById("join-btn").addEventListener("click", async () => {
     console.log("STATUS:", res.status);
 
     if (res.ok) {
-      button.innerText = "You're on the list";
+      button.innerText = "You're in";
 
       setTimeout(() => {
         window.location.href = "/thanks";
