@@ -118,7 +118,9 @@ document.getElementById("join-btn").addEventListener("click", async () => {
     console.log("STATUS:", res.status);
 
   if (res.ok) {
+  setTimeout(() => {
   window.location.href = "/thanks";
+}, 1500);
 } else {
   console.error("FAILED:", res.status);
   alert("Signup failed. Check console.");
