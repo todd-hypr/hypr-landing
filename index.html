@@ -65,7 +65,7 @@ input{
   border:1px solid #555;
   color:#FFF;
   padding:14px;
-  width:320px;
+  width:min(320px, 90vw);
   border-radius:6px;
   margin:14px 0;
 }
@@ -80,10 +80,10 @@ button{
 }
 @media (min-width: 768px) and (orientation: landscape) {
   video {
-    max-height: 40vh;
+    max-height: 60vh;
   }
   .container {
-    padding: 20px 20px;
+    padding: 10px 20px;
   }
   .signup {
     margin-top: 1vh;
@@ -104,8 +104,8 @@ button{
 <div class="signup" id="waitlist-form">
 
 <p class="headline">Most people cannot describe the art they love. They know it the moment they see it.</p>
-<p class="intro">Introducing hyper-individualized discovery.<br>
-For independent artists and the people who love what they make.</p>
+<p class="intro">Introducing hyper-individualized discovery.</p>
+<p class="intro" style="margin-top:8px;">For independent artists and the people who love what they make.</p>
 <p class="cta">Join the waitlist.</p>
 <input type="email" id="email" placeholder="Enter your email" required>
 <button id="join-btn">Join</button>
